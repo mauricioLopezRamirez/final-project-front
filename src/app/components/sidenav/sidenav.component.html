@@ -1,0 +1,29 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">FinalProject</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav opened #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <mat-nav-list>
+        <button routerLink="" class="menu-btn" mat-flat-button color="primary">Home</button>
+        <button routerLink="/save-information-one" class="menu-btn" mat-flat-button color="primary">Save Information
+          One</button>
+        <button routerLink="/save-information-two" class="menu-btn" mat-flat-button color="primary">Save Information
+          Two</button>
+        <button routerLink="/search" class="menu-btn" mat-flat-button color="primary">Search</button>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <mat-card>
+        <ng-content></ng-content>
+      </mat-card>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
